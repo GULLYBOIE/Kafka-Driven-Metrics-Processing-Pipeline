@@ -1,14 +1,5 @@
-Overview
-This project implements a real-time data pipeline using Apache Kafka, Python's psutil library for metric collection, and SQL Server for data storage. The pipeline collects metrics data from the local computer, processes it through Kafka brokers, and loads it into a SQL Server database. 
+This project implements a real-time data pipeline that captures system performance metrics using Python’s psutil library and streams them through Apache Kafka for continuous processing. Metrics are collected from the local machine and published to Kafka topics, enabling a steady flow of telemetry data through a distributed streaming architecture.
 
-Technologies Used
-Python: Utilized the psutil library for collecting metrics data and Kafka Python client for producing and consuming messages.
-Apache Kafka: Implemented a distributed streaming platform to handle real-time data processing and communication between producers and consumers.
-Apache Zookeeper: Used for coordinating and managing Kafka brokers.
-SQL Server: Stored and managed the collected metrics data in a relational database.
+Kafka brokers, coordinated by Apache ZooKeeper, handle message distribution between producers and consumers, ensuring reliable and scalable data movement. The consumer layer processes incoming messages and loads the structured data into SQL Server, where it can be queried and analyzed efficiently in a relational format.
 
-The data pipeline consists of the following steps:
-Data Collection: Metrics data is collected from the local computer using the psutil Python library.
-Data Production: The collected data is sent as messages to Kafka topics through a Kafka producer.
-Data Consumption: Kafka consumers read the messages from the topics, process them, and load the data into SQL Server.
-
+The pipeline provides an end-to-end view of system activity, from metric collection to storage, and forms a foundation for real-time monitoring and analytics. This design showcases practical use of event streaming, OLTP data storage, and Python-based automation to build a lightweight yet effective observability workflow.
